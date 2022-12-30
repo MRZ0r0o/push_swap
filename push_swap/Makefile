@@ -12,7 +12,9 @@ SRCS = ft_printf/ft_printf.c		\
 	   lsts/ft_lstadd_front.c		\
 	   lsts/ft_lstlast.c			\
 	   moves/moves2.c				\
-	   moves/moves3.c
+	   moves/moves3.c				\
+	   sort_3.c						\
+	   lsts/ft_lstsize.c
 
 
 OBJS = $(SRCS:.c=.o)

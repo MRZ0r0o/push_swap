@@ -6,7 +6,7 @@
 /*   By: mradwan <mradwan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 14:56:11 by mradwan           #+#    #+#             */
-/*   Updated: 2022/12/19 19:49:55 by mradwan          ###   ########.fr       */
+/*   Updated: 2022/12/28 19:45:20 by mradwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,26 +106,66 @@ int	ps_sorted_check(t_list *list)
 		else
 			return(1);
 	}
-	ft_printf("is sorted\n");
+	// ft_printf("is sorted\n");
 	return(0);
 }
 
 void	sort_the_nums_to_small(t_list **list)
 {
+	// int i;
+	// t_list *tmp;
+	// t_list *tmp2;
+	// t_list *tmp3;
+	
+	// tmp = (*list);
+	// tmp2 = (*list);
+	// tmp3 = (*list);
+	// while (tmp)
+	// {
+	// 	i = 0;
+	// 	while (tmp2)
+	// 	{
+	// 		if(tmp->content > tmp2->content)
+	// 		{
+	// 			i++;
+	// 			tmp->id = i;
+	// 		}
+	// 		tmp2 = tmp2->next;
+	// 	}
+	// 	tmp2 = tmp3;
+	// 	ft_printf("%d\n", tmp->id);
+	// 	tmp = tmp->next;
+	// }
 	int i;
 	t_list *tmp;
 	t_list *tmp2;
+
+	i = 0;
 	tmp = (*list);
-	tmp2 = (*list);
-	while (tmp->next)
+	while (tmp)
 	{
-		i = 1;
+		i = 0;
+		tmp2 = (*list);
 		while (tmp2)
 		{
-			if(tmp > tmp2)
+			if (tmp->content > tmp2->content)
 				i++;
 			tmp2 = tmp2->next;
 		}
-		
+		tmp->id = i;
+		// printf("value |%d| index |%d|\n", tmp->content, tmp->id);	
+		tmp = tmp->next;
+	}
+	i = 0;
+	tmp = (*list);
+	while (tmp)
+	{
+		tmp->index = i;
+		// printf("value |%d| crnt_pos |%d| index |%d|\n", tmp->content, tmp->index, tmp->id);	
+		tmp = tmp->next;
+		i++;
 	}
 }
+
+// 5 -4 1 -2
+// 3  1 1
