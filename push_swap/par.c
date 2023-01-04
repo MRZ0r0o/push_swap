@@ -6,34 +6,34 @@
 /*   By: mradwan <mradwan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:38:18 by mradwan           #+#    #+#             */
-/*   Updated: 2022/12/28 16:43:43 by mradwan          ###   ########.fr       */
+/*   Updated: 2023/01/05 01:35:13 by mradwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// #include <stdio.h>
 
 int	ps_arg_check(int ac, char **av)
 {
 	int	i;
-	int j;
-	
+	int	j;
+
 	j = 0;
 	if (ac < 2)
 		return (0);
-	while(av[j])
+	while (av[j])
 	{
 		i = 0;
-		while(av[j][i])
+		while (av[j][i])
 		{
-			if ((av[j][0] == '+' || av[j][0] == '-' )&& i == 0)
+			if ((av[j][0] == '+' || av[j][0] == '-' ) && i == 0)
 				i++;
 			if (av[j][i] >= '0' && av[j][i] <= '9')
 				i++;
 			else
 			{
 				write(2, "Error\n", 6);
-				return(0);
+				free_strings(av);
+				return (0);
 			}
 		}
 		j++;
@@ -68,4 +68,17 @@ char	*ft_strjoin(char *s1, char *s2)
 	join[(ft_strlen(s1) + ft_strlen(s2)) + 1] = '\0';
 	free(s1);
 	return (join);
+}
+
+void	free_all(t_list *lst)
+{
+	t_list	*tmp;
+
+	tmp = lst;
+	while (lst)
+	{
+		tmp = lst;
+		lst = lst->next;
+		free(tmp);
+	}
 }

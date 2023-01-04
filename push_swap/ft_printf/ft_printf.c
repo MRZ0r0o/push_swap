@@ -6,7 +6,7 @@
 /*   By: mradwan <mradwan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 00:43:18 by mradwan           #+#    #+#             */
-/*   Updated: 2022/11/15 16:59:11 by mradwan          ###   ########.fr       */
+/*   Updated: 2023/01/05 02:31:05 by mradwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ int	ft_putunnbr(unsigned int n)
 	int	len;
 
 	len = 0;
-	if (n < 0)
-	{
-		len += ft_putchar('-');
-		n = n * -1;
-	}
 	if (n <= 9)
 		len += ft_putchar(n + '0');
 	if (n > 9)

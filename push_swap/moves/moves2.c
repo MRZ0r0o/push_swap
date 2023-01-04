@@ -6,7 +6,7 @@
 /*   By: mradwan <mradwan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:57:46 by mradwan           #+#    #+#             */
-/*   Updated: 2022/12/19 19:23:47 by mradwan          ###   ########.fr       */
+/*   Updated: 2023/01/04 21:58:31 by mradwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,3 @@ void	sa(t_ps *list)
 	ps_swap_list(list->stack_a);
 	ft_printf("sa\n");
 }
-
