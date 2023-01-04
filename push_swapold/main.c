@@ -6,7 +6,7 @@
 /*   By: mradwan <mradwan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:42:48 by mradwan           #+#    #+#             */
-/*   Updated: 2023/01/04 21:55:15 by mradwan          ###   ########.fr       */
+/*   Updated: 2022/12/30 15:14:35 by mradwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,30 +55,39 @@ int	ps_main(int ac, char **av)
 	return(1);
 }
 
+	// ps_rra(&list.stack_a);
+	// // ps_pb(&list);
+	// // ps_swap_list(list.stack_b);
+	// // t_list *node = list.stack_b;
+	// t_list *node2 = list.stack_a;
+	// while (node2)
+	// {
+	// 	ft_printf("%d\n", (node2->content));
+	// 	// ft_printf("%d\n", (node2->next->content));
+	// 	node2 = node2->next;
+	// }
 void	check_and_sort(t_ps *lst)
 {
-	lst->stack_b = NULL;
 	if(ft_lstsize(lst->stack_a) == 3)
 	{
 		sort_three(lst);
 		return;
 	}
-	else if(ft_lstsize(lst->stack_a) < 50)
+	while (ft_lstsize(lst->stack_a) > 0)
 	{
-		while (ft_lstsize(lst->stack_a) > 0)
-		{
-			if(!ps_sorted_check(lst->stack_a))
-				break ;
-			sorting_few(lst);
-		}
-		while (lst->stack_b)
-		{
-			ps_pa(lst);
-			ft_printf("pa\n");
-		}
+		// if(ft_lstsize(lst->stack_a) > 1)
+			sorting(lst);
+		// else
+		// 	ps_pb(lst);
 	}
-	else
-		sorting2(lst);
+	while (lst->stack_b)
+	{
+		ps_pa(lst);
+		// push(&lst->stack_b, &lst->stack_a);
+		ft_printf("pa\n");
+		// printf("%d-----\n",lst->stack_b->content);
+		// lst->stack_b = lst->stack_b->next;
+	}
 }
 
 int main(int ac, char **av)
@@ -86,5 +95,3 @@ int main(int ac, char **av)
 	if (!ps_main(ac, av))
 		return(0);
 }
-
-//  /usr/bin/python3 /Users/mradwan/Desktop/push_swap/python_visualizer.py `ruby -e "puts (1..20).to_a.shuffle.join(' ')"`

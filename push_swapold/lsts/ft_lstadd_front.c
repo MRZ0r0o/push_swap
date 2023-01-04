@@ -6,7 +6,7 @@
 /*   By: mradwan <mradwan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 15:27:51 by mradwan           #+#    #+#             */
-/*   Updated: 2023/01/04 17:37:17 by mradwan          ###   ########.fr       */
+/*   Updated: 2022/12/15 23:04:01 by mradwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!*lst){
-		*lst = new;
-	}
-	else if (new || lst)
+	if (new || lst)
 	{
 		new -> next = *lst;
 		*lst = new;

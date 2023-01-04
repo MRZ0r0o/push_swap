@@ -6,7 +6,7 @@
 /*   By: mradwan <mradwan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 14:56:11 by mradwan           #+#    #+#             */
-/*   Updated: 2023/01/04 16:59:55 by mradwan          ###   ########.fr       */
+/*   Updated: 2022/12/28 19:45:20 by mradwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ void	sort_the_nums_to_small(t_list **list)
 		// printf("value |%d| index |%d|\n", tmp->content, tmp->id);	
 		tmp = tmp->next;
 	}
-	i = 1;
+	i = 0;
 	tmp = (*list);
 	while (tmp)
 	{

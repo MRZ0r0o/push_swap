@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mradwan <mradwan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 15:27:51 by mradwan           #+#    #+#             */
-/*   Updated: 2023/01/04 17:37:17 by mradwan          ###   ########.fr       */
+/*   Created: 2022/10/16 18:03:08 by mradwan           #+#    #+#             */
+/*   Updated: 2022/12/15 23:04:07 by mradwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (!*lst){
-		*lst = new;
-	}
-	else if (new || lst)
+	while (lst)
 	{
-		new -> next = *lst;
-		*lst = new;
+		if(lst -> next == NULL)
+			return(lst);
+		lst = lst -> next;
 	}
+	return(lst); 
 }
+
 // #include <stdio.h>
 // int main()
 // {
 // 	t_list *m = ft_lstnew("mustafa");
-// 	t_list *b = ft_lstnew("rawdan");
-	
-// 	ft_lstadd_front(&m, b);
-// 	while (m-> next != NULL)
-// 	{
-// 		printf("%s ", m -> content);
-// 		m = m->next;
-// 	}
-// 	m->next = NULL;
-// 	printf("%s" , m->content);
+// 	t_list *n = ft_lstnew("waleed");
+// 	t_list *l = ft_lstnew("radwan");
+
+// 	m -> next = n;
+// 	n -> next = l;
+// 	//ft_lstlast(m);
+// 	printf("%s\n",  ft_lstlast(m) -> content);
 // }
