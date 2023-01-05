@@ -30,7 +30,6 @@ void	sort_three(t_ps *s)
 		sa(s);
 	else if (s->stack_a->id == 1 && s->stack_a->next->id == 2)
 		rra(s);
-	free_all(s->stack_a);
 }
 
 void	sorting_few(t_ps *s)

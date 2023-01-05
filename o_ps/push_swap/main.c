@@ -82,7 +82,10 @@ void	check_and_sort(t_ps *lst)
 {
 	lst->stack_b = NULL;
 	if (ft_lstsize(lst->stack_a) == 3)
+	{
 		sort_three(lst);
+		free_all(lst->stack_a);
+	}
 	else if (ft_lstsize(lst->stack_a) == 5)
 		sort_five(lst);
 	else if (ft_lstsize(lst->stack_a) < 50)
