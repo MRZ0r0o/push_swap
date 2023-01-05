@@ -18,11 +18,12 @@ void	ps_copy_to_lists(t_ps *list, char **av)
 	int	num;
 
 	i = 0;
-	num = ft_atoi(av[i++]);
+	num = ft_atoi(av[i++], av);
 	list->stack_a = ft_lstnew(num);
 	while (av[i])
 	{
-		num = ft_atoi(av[i]);
+		ft_printf("inside han\n");
+		num = ft_atoi(av[i], av);
 		ft_lstadd_back(&list->stack_a, ft_lstnew(num));
 		i++;
 	}
@@ -41,7 +42,7 @@ static int	supp(int ac, char **av, t_ps *list)
 	if (!ps_arg_check(ac, av) || !ps_dub_check(ac, av))
 		return (0);
 	ps_copy_to_lists(list, av);
-	free_strings(av);
+	// free_strings(av);
 	if (!ps_sorted_check(list->stack_a))
 		return (0);
 	check_and_sort(list);
@@ -67,7 +68,7 @@ int	ps_main(int ac, char **av)
 	{
 		if (av[d++] == NULL)
 		{
-			write(2, "Error\n", 10);
+			write(2, "Error\n", 6);
 			free_strings(av);
 			return (0);
 		}

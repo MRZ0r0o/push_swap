@@ -96,5 +96,6 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	split[i] = 0;
+	// free((char*)s);
 	return (split);
 }

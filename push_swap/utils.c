@@ -12,7 +12,35 @@
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+// int	ft_atoi(const char *str)
+// {
+// 	int			i;
+// 	long int	res;
+// 	int			sign;
+
+// 	i = 0;
+// 	sign = 1;
+// 	res = 0;
+// 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+// 		i++;
+// 	if (str[i] == '+' || str[i] == '-')
+// 		if (str[i++] == '-')
+// 			sign = sign * -1;
+// 	while (str[i] == '0')
+// 			i++;
+// 	while (str[i] >= '0' && str[i] <= '9')
+// 	{
+// 		res = (res * 10) + (str[i++] - '0');
+// 		if ((res > 2147483647 && sign == 1) || (res > 2147483648 && sign == -1))
+// 		{
+// 			write(2, "Error\n", 6);
+// 			exit(-1);
+// 		}
+// 	}
+// 	return (res * sign);
+// }
+
+int	ft_atoi(const char *str, char **av)
 {
 	int			i;
 	long int	res;
@@ -33,7 +61,8 @@ int	ft_atoi(const char *str)
 		res = (res * 10) + (str[i++] - '0');
 		if ((res > 2147483647 && sign == 1) || (res > 2147483648 && sign == -1))
 		{
-			write(2, "Error\n", 6);
+			write(2, "Error\n", 7);
+			free_strings(av);
 			exit(-1);
 		}
 	}
@@ -54,9 +83,9 @@ int	ps_dub_check(int ac, char **av)
 		i = j + 1;
 		while (av[i])
 		{
-			if (ft_atoi(av[i]) == ft_atoi(av[j]))
+			if (ft_atoi(av[i], av) == ft_atoi(av[j], av))
 			{
-				ft_printf("error");
+				write(2, "Error\n", 6);
 				free_strings(av);
 				return (0);
 			}
