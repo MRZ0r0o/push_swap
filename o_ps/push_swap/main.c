@@ -42,7 +42,10 @@ static int	supp(int ac, char **av, t_ps *list)
 		return (0);
 	ps_copy_to_lists(list, av);
 	if (!ps_sorted_check(list->stack_a))
+	{
+		free_all(list->stack_a);
 		return (0);
+	}
 	check_and_sort(list);
 	return (1);
 }
@@ -79,15 +82,9 @@ void	check_and_sort(t_ps *lst)
 {
 	lst->stack_b = NULL;
 	if (ft_lstsize(lst->stack_a) == 3)
-	{
 		sort_three(lst);
-		return ;
-	}
 	else if (ft_lstsize(lst->stack_a) == 5)
-	{
 		sort_five(lst);
-		return ;
-	}
 	else if (ft_lstsize(lst->stack_a) < 50)
 	{
 		while (ft_lstsize(lst->stack_a) > 0)
@@ -98,6 +95,7 @@ void	check_and_sort(t_ps *lst)
 		}
 		while (lst->stack_b)
 			ps_pa(lst);
+		free_all(lst->stack_a);
 	}
 	else
 		sorting2(lst);

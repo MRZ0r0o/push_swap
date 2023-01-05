@@ -80,7 +80,6 @@ int	ps_sorted_check(t_list *list)
 		else
 			return (1);
 	}
-	free_all(list);
 	return (0);
 }
 
