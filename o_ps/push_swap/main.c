@@ -75,6 +75,7 @@ int	ps_main(int ac, char **av)
 	}
 	if (!supp(ac, av, &list))
 		return (0);
+	free_all(list.stack_a);
 	return (1);
 }
 
@@ -82,10 +83,7 @@ void	check_and_sort(t_ps *lst)
 {
 	lst->stack_b = NULL;
 	if (ft_lstsize(lst->stack_a) == 3)
-	{
 		sort_three(lst);
-		free_all(lst->stack_a);
-	}
 	else if (ft_lstsize(lst->stack_a) == 5)
 		sort_five(lst);
 	else if (ft_lstsize(lst->stack_a) < 50)
@@ -98,7 +96,6 @@ void	check_and_sort(t_ps *lst)
 		}
 		while (lst->stack_b)
 			ps_pa(lst);
-		free_all(lst->stack_a);
 	}
 	else
 		sorting2(lst);

@@ -111,5 +111,4 @@ void	sort_five(t_ps *lst)
 	sort_the_nums_to_small(&lst->stack_a);
 	if (ps_sorted_check(lst->stack_a))
 		sa(lst);
-	free_all(lst->stack_a);
 }
